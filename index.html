@@ -18,7 +18,11 @@
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
-    const form = document.querySelector('.contact_form'),
+    form = document.querySelector('.contact_form');
+    function SendMsg(e){
+      e.preventDefault();
+
+      const 
           name = document.querySelector('.name'),
           email = document.querySelector('.email'),
           message = document.querySelector('.message');
@@ -28,11 +32,13 @@
             To : 'cbulathgama8@gmail.com',
             From : email.value,
             Subject : "This is the subject",
-            Body : "And this is the body"
+            Body : message.value
         }).then(
           message => alert(message)
         );
 
+    }
+    form.addEventList('submit',SendMsg);
   </script>
 
 </body>
